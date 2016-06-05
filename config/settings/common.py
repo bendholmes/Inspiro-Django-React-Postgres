@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print os.path.abspath(__file__).split('/')
+BASE_DIR = os.path.dirname(os.path.dirname("/".join(os.path.abspath(__file__).split('/')[:-1])))
 
 
 # Quick-start development settings - unsuitable for production
@@ -53,19 +54,13 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'config.urls'
 
+print '*** template dir: %s' % os.path.join(BASE_DIR, 'templates/')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.jinja2.Jinja2',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
         'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+        'OPTIONS': {'environment': 'inspiro.jinja2.Environment',},
     },
 ]
 
@@ -118,5 +113,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
+REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(REPOSITORY_ROOT, 'static/')
