@@ -38,14 +38,14 @@ gulp.task('css', function() {
 
 gulp.task('bower', function() {
     // Copy minified js files
-    gulp.src(bowerMain('js', 'min.js').minified, {base: './src/static/bower_components'})
+    gulp.src(bowerMain('js', 'min.js').minified, {base: './bower_components'})
         .pipe(sourcemaps.init())
         .pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('./static/js'));
 
     // Copy non-minified js that don't have minified versions
     // TODO: Minify these?
-    gulp.src(mainBowerFiles(), {base: './src/static/bower_components'})
+    gulp.src(mainBowerFiles(), {base: './bower_components'})
         .pipe(gulpIgnore.include(keepNonMinified))
         .pipe(sourcemaps.init())
         .pipe(sourcemaps.write('./'))
