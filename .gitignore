@@ -1,0 +1,5 @@
+*.pyc
+.idea
+bower_components
+node_modules
+static
