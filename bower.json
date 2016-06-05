@@ -1,0 +1,32 @@
+{
+  "name": "inspiro",
+  "version": "0.0.1",
+  "authors": [
+    "Benjamin Holmes <ben@bdholmes.com>"
+  ],
+  "description": "Collaborative todo lists",
+  "main": "index.js",
+  "moduleType": [
+    "es6",
+    "globals"
+  ],
+  "keywords": [
+    "django",
+    "jinja2",
+    "react",
+    "npm",
+    "bower"
+  ],
+  "license": "MIT",
+  "homepage": "inspiro.bdholmes.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~15.1.0"
+  }
+}

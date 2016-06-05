@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-print os.path.abspath(__file__).split('/')
 BASE_DIR = os.path.dirname(os.path.dirname("/".join(os.path.abspath(__file__).split('/')[:-1])))
 
 
@@ -54,11 +53,10 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'config.urls'
 
-print '*** template dir: %s' % os.path.join(BASE_DIR, 'templates/')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.jinja2.Jinja2',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
+        'DIRS': [os.path.join(BASE_DIR, 'static/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {'environment': 'inspiro.jinja2.Environment',},
     },
